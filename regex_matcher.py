@@ -1,3 +1,9 @@
+import re
+
+# (0 + 1)∗(00000011111 + 11111100000) (0 + 1)∗
+pattern_a = r'[01]*(00000011111|11111100000)[01]*'
+
+
 def read_file(file_name):
     list_of_strings = []
     with open(file_name, 'r') as file:
@@ -15,6 +21,11 @@ def print_list(print_list):
 
 def match_language():
     strings = read_file('randomstrings.txt')
+
+    # Matches pattern for q6) a) and then prints matches
+    results = [in_array + 1 for in_array, line_value in enumerate(strings) if re.match(pattern_a, line_value)]
+    print('---------MATCHES FOR Q6) A)---------')
+    print_list(results)
 
 
 if "__main__":
