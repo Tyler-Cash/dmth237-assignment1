@@ -3,6 +3,9 @@ import re
 # (0 + 1)∗(00000011111 + 11111100000) (0 + 1)∗
 pattern_a = r'[01]*(00000011111|11111100000)[01]*'
 
+#  (0 + 1)∗ 0(01)^5 1 (0 + 1)∗
+pattern_b = r'(([01]*)(0(01){5}1)([01]*))'
+
 
 def read_file(file_name):
     list_of_strings = []
@@ -25,6 +28,11 @@ def match_language():
     # Matches pattern for q6) a) and then prints matches
     results = [in_array + 1 for in_array, line_value in enumerate(strings) if re.match(pattern_a, line_value)]
     print('---------MATCHES FOR Q6) A)---------')
+    print_list(results)
+
+    # Matches pattern for q6) b) and then prints matches
+    results = [in_array + 1 for in_array, line_value in enumerate(strings) if re.match(pattern_b, line_value)]
+    print('---------MATCHES FOR Q6) B)---------')
     print_list(results)
 
 
