@@ -6,6 +6,13 @@ def read_file(file_name):
     return list_of_strings
 
 
+def print_list(print_list):
+    print('lines: ', end='')
+    for item in print_list:
+        print(str(item), end=' ')
+    print('')
+
+
 def match_language():
     strings = read_file('randomstrings.txt')
 
